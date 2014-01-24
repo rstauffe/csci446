@@ -1,0 +1,136 @@
+/*
+Features used:
+Variables for font styles
+Nesting for creating sidebar stuff
+Partials for importing font
+Mixins for creating sticky footer and font setup
+Inheritance for nav and header for background color
+Operators to change font sizes
+
+Used SASS to repeat most features across page (colors, sizes)
+Simplified use of different pixel sizes and styles
+
+Sticky footer help from http://stackoverflow.com/questions/6170452/adding-a-footer-that-is-always-displayed-at-bottom-of-screen
+*/
+
+
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+//include custom font (partial CSS)
+@import "blackjack_font";
+
+//create basic formatting variables
+$body-font-family: blackjackregular, sans-serif;
+$body-font-color: #333;
+$body-font-size: 20px;
+$body-font-weight: normal;
+$body-font-style: normal;
+$bg-color: #C0C0C0;
+
+
+/* Working in ems is annoying. Think in pixels by using this handy function, emCalc(#px). 
+*  Full credit of this function to ZURB's Foundation Framework 4
+*/
+@function emCalc($pxWidth) {
+  @return $pxWidth / $body-font-size * 1em;
+}
+
+//create your mixin
+@mixin setupFont(
+$family:$body-font-family, //if a parameter, aka argument, is not passed in, it has a fallback to $body-font-*
+$color:$body-font-color, 
+$size:$body-font-size, 
+$weight:$body-font-weight, 
+$style:$body-font-style
+){
+  //Sass allows for "nesting," which allows for you to nest selectors/properties 
+  font:{
+    family: $family;
+    size: emCalc($size); //convert px passed in to em
+    weight: $weight;
+    style: $style;
+  }
+      color: $color;
+}
+
+//setup your body class, if for nothing else so the em units actually base from the default amount of 20px, instead of the browser's default font size
+body{
+  font-size: $body-font-size; //this needs to be a px value
+  h2 {
+	@include setupFont;
+  }
+}
+
+//sets the background color for features
+basic_header {
+	background-color: $bg-color;
+	margin: 0;
+	padding: 0;
+}
+
+//make any text in a header slightly larger, the color a hair lighter, and bold
+header {
+	@extend basic_header;
+   @include setupFont($size: $body-font-size*1.1, $color: lighten($body-font-color, 10%), $weight: bold);
+   width: 100%;
+}
+
+#main {
+	width: 600px;
+	float: left;
+}
+
+nav {
+	@extend basic_header;
+	@include setupFont;
+	text-align: right;
+}
+
+#side {
+	float: right;
+	width: 300px;
+}
+	
+#login {
+	float: right;
+	width: 300px;
+	border-style: solid;
+	border-width: 2px;
+}
+
+#sidebar {
+	@extend basic_header;
+	color: #666666;
+	float: left;
+	width: 280px;
+	
+	img {
+		width: 250px;
+		margin-left: 15px;
+	}
+	
+	ul {
+		list-style-type: square;
+		display: block;
+		margin-left: 50px;
+		margin-right: auto;
+	}
+}
+
+//fixes the location of the selected element to the bottom of the screen (from http://stackoverflow.com/questions/6170452/adding-a-footer-that-is-always-displayed-at-bottom-of-screen)
+@mixin fixLocation() {
+	position: fixed;
+	bottom: 0px;
+}
+
+footer {
+	@include setupFont($size: $body-font-size*.8);
+	@include fixLocation;
+	text-align: center;
+	width: 100%;
+	background-color: $bg-color;
+}
