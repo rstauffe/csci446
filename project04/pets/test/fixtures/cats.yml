@@ -3,11 +3,17 @@
 one:
   name: MyString
   breed: MyString
-  image_url: MyString
+  image_url: MyString.jpg
   description: MyText
 
 two:
   name: MyString
   breed: MyString
-  image_url: MyString
+  image_url: MyString.jpg
   description: MyText
+  
+test: 
+  name: Tiger
+  breed: CatBreed
+  image_url: picture.jpg
+  description: This is a cat.
