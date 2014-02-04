@@ -16,4 +16,4 @@ test:
   name: Tiger
   breed: CatBreed
   image_url: picture.jpg
-  description: This is a cat.
+  description: <p>This is a cat.</p>
