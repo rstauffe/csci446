@@ -24,14 +24,11 @@ class AdoptedPetsController < ApplicationController
   # POST /adopted_pets
   # POST /adopted_pets.json
   def create
-		@selection = current_selection
-		cat = Cat.find(params[:pet_id])
-    @adopted_pet = @selection.adopted_pets.build
-    #@adopted_pet.cat = cat
+    @adopted_pet = AdoptedPet.new(adopted_pet_params)
 
     respond_to do |format|
       if @adopted_pet.save
-        format.html { redirect_to @adopted_pet.selection, notice: 'Adopted pet was successfully created.' }
+        format.html { redirect_to @adopted_pet, notice: 'Adopted pet was successfully created.' }
         format.json { render action: 'show', status: :created, location: @adopted_pet }
       else
         format.html { render action: 'new' }
@@ -63,15 +60,4 @@ class AdoptedPetsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_adopted_pet
-      @adopted_pet = AdoptedPet.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def adopted_pet_params
-      params.require(:adopted_pet).permit(:pet_id, :selection_id)
-    end
 end
