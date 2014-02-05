@@ -1,6 +1,8 @@
 <h1>Listing cats</h1>
 
 <table>
+<%= link_to "Sort by name", :sort => "name" %><br/>
+<%= link_to "Sort by breed", :sort => "breed" %>
 <% @cats.each do |cat| %>
 	<tr class="<%= cycle('list_line_odd', 'list-line_even') %>">
 	

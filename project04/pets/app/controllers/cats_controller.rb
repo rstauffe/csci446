@@ -4,7 +4,7 @@ class CatsController < ApplicationController
   # GET /cats
   # GET /cats.json
   def index
-    @cats = Cat.all
+    @cats = Cat.order(params[:sort])
   end
 
   # GET /cats/1
