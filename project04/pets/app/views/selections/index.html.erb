@@ -1,0 +1,25 @@
+<h1>Listing selections</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @selections.each do |selection| %>
+      <tr>
+        <td><%= link_to 'Show', selection %></td>
+        <td><%= link_to 'Edit', edit_selection_path(selection) %></td>
+        <td><%= link_to 'Destroy', selection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Selection', new_selection_path %>
