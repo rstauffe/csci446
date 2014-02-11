@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 //#START_HIGHLIGHT
-$(document).on "ready page:change", ->
+$(document).on "ready", ->
   $('.store .entry > img').click ->
     $(this).parent().find(':submit').click()
 //#END_HIGHLIGHT
