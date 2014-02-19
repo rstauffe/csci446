@@ -4,7 +4,6 @@ class AdoptController < ApplicationController
   
   def index
     @cat = Cat.find(params[:cat_id])
-    @latest_cat = @cat
   end
   
   def new

@@ -23,6 +23,7 @@
     <%= f.label :email %><br>
     <%= f.text_field :email, size: 40 %>
   </div>
+  <%= hidden_field_tag 'pet_id', {:pet_id => params[:pet_id]} %>
   <div class="actions">
     <%= f.submit 'Confirm adoption' %>
   </div>

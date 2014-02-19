@@ -26,6 +26,7 @@ class FosterParentsController < ApplicationController
   # POST /foster_parents.json
   def create
     @foster_parent = FosterParent.new(foster_parent_params)
+    @foster_parent.pet_id = params[:pet_id]
 
     respond_to do |format|
       if @foster_parent.save
