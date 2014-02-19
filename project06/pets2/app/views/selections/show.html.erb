@@ -8,3 +8,4 @@
 		<li> <%= pet.cat.name %></li>
 	<% end %>
 </ul>
+<%= button_to 'Remove Selections', @selection, method: :delete, data: {confirm: 'Are you sure?' } %>

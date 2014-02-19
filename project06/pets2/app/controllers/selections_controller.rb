@@ -55,9 +55,10 @@ class SelectionsController < ApplicationController
   # DELETE /selections/1
   # DELETE /selections/1.json
   def destroy
-    @selection.destroy
+    @selection.destroy if @selection.id == session[:selection_id]
+    session[:selection_id] = nil
     respond_to do |format|
-      format.html { redirect_to selections_url }
+      format.html { redirect_to adoption_url, notice: 'Selections removed.' }
       format.json { head :no_content }
     end
   end
