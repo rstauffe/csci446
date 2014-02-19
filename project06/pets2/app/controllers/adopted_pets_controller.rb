@@ -66,6 +66,10 @@ class AdoptedPetsController < ApplicationController
   end
   
   private
+  
+  def set_adopted_pet
+    @adopted_pet = AdoptedPet.find(params[:id])
+  end 
   def adopted_pet_params
     params.require(:adopted_pet).permit(:cat_id)
   end

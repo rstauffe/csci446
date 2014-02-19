@@ -41,9 +41,10 @@ class SelectionsControllerTest < ActionController::TestCase
 
   test "should destroy selection" do
     assert_difference('Selection.count', -1) do
+      session[:selection_id] = @selection.id
       delete :destroy, id: @selection
     end
 
-    assert_redirected_to selections_path
+    assert_redirected_to adoption_path
   end
 end

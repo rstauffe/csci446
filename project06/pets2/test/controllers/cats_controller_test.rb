@@ -7,7 +7,8 @@ class CatsControllerTest < ActionController::TestCase
 			name: 'Lorem Ipsum',
 			breed: 'Cat',
 			image_url: 'Lorem.jpg',
-			description: 'This is a cat!'
+			description: 'This is a cat!',
+      status: 'Available'
 		}
   end
 

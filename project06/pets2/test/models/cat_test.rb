@@ -8,13 +8,15 @@ class CatTest < ActiveSupport::TestCase
 		assert cat.errors[:breed].any?
 		assert cat.errors[:image_url].any?
 		assert cat.errors[:description].any?
+    assert cat.errors[:status].any?
 	end
 	
 	def new_cat(image_url)
     Cat.new(name:       "Name",
                 description: "Cat",
                 breed:       "Tomcat",
-                image_url:   image_url)
+                image_url:   image_url,
+                status: "Available")
   end
   test "image url" do
     ok = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg
@@ -34,7 +36,8 @@ class CatTest < ActiveSupport::TestCase
     cat = Cat.new(name:       "Cat",
                           description: cats(:test).description, 
                           breed:       "Tomcat", 
-                          image_url:   "fred.gif")
+                          image_url:   "fred.gif",
+                          status: "Available")
 
     assert cat.invalid?
     assert_equal ["has already been taken"], cat.errors[:description]

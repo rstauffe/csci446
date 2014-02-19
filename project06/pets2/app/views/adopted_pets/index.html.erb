@@ -14,7 +14,7 @@
   <tbody>
     <% @adopted_pets.each do |adopted_pet| %>
       <tr>
-        <td><%= adopted_pet.pet_id %></td>
+        <td><%= adopted_pet.cat_id %></td>
         <td><%= adopted_pet.selection_id %></td>
         <td><%= link_to 'Show', adopted_pet %></td>
         <td><%= link_to 'Edit', edit_adopted_pet_path(adopted_pet) %></td>

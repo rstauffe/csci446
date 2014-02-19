@@ -6,6 +6,7 @@ class Cat < ActiveRecord::Base
 		with: %r{\.(gif|jpg|png)\Z}i,
 		message: 'must be a URL for GIF, JPG, or PNG image.'
 	}
+  validates :status, inclusion: STATUS_TYPES
 	
 	has_many :adopted_pets
 	

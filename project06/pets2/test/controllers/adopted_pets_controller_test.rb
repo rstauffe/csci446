@@ -18,10 +18,10 @@ class AdoptedPetsControllerTest < ActionController::TestCase
 
   test "should create adopted_pet" do
     assert_difference('AdoptedPet.count') do
-      post :create, adopted_pet: { cat_id: @adopted_pet.cat_id, selection_id: @adopted_pet.selection_id }
+      post :create, cat_id: cats(:test).id
     end
 
-    assert_redirected_to adopted_pet_path(assigns(:adopted_pet))
+    assert_redirected_to adoption_url
   end
 
   test "should show adopted_pet" do

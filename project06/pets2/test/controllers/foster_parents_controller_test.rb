@@ -21,7 +21,7 @@ class FosterParentsControllerTest < ActionController::TestCase
       post :create, foster_parent: { address: @foster_parent.address, email: @foster_parent.email, name: @foster_parent.name }
     end
 
-    assert_redirected_to foster_parent_path(assigns(:foster_parent))
+    assert_redirected_to adoption_path
   end
 
   test "should show foster_parent" do
