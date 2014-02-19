@@ -20,5 +20,10 @@
   <%= @cat.description %>
 </p>
 
+<p>
+  <strong>Status:</strong>
+  <%= @cat.status %>
+</p>
+
 <%= link_to 'Edit', edit_cat_path(@cat) %> |
 <%= link_to 'Back', cats_path %>

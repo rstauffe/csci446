@@ -1,5 +1,6 @@
 class SelectionsController < ApplicationController
   before_action :set_selection, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_selection
 
   # GET /selections
   # GET /selections.json
@@ -70,5 +71,10 @@ class SelectionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def selection_params
       params[:selection]
+    end
+    
+    def invalid_selection
+      logger.error "Attempt to access invalid selection #{params[:id]}"
+      redirect_to adoption_url, notice: 'Invalid selection'
     end
 end

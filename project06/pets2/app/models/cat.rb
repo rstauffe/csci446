@@ -1,5 +1,6 @@
 class Cat < ActiveRecord::Base
-	validates :name, :breed, :description, :image_url, presence: true
+  STATUS_TYPES = ['Available', 'Fostered']
+	validates :name, :breed, :description, :image_url, :status, presence: true
 	validates :description, uniqueness: true
 	validates :image_url, allow_blank: true, format: {
 		with: %r{\.(gif|jpg|png)\Z}i,

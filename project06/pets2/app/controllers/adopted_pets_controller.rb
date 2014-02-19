@@ -63,4 +63,9 @@ class AdoptedPetsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+  def adopted_pet_params
+    params.require(:adopted_pet).permit(:cat_id)
+  end
 end
