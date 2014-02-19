@@ -1,4 +1,10 @@
+<% if notice %>
 <p id="notice"><%= notice %></p>
+<% end %>
 
-<%= link_to 'Edit', edit_selection_path(@selection) %> |
-<%= link_to 'Back', selections_path %>
+<h2>Pets for Consideration</h2>
+<ul>
+	<% @selection.adopted_pets.each do |pet| %>
+		<li> <%= pet.cat %></li>
+	<% end %>
+</ul>

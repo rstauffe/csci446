@@ -1,6 +1,6 @@
 class AdoptController < ApplicationController
   def index
-    @cat = Cat.find(params[:pet_id])
+    @cat = Cat.find(params[:cat_id])
   end
   
   def new
@@ -9,6 +9,6 @@ class AdoptController < ApplicationController
   
   # POST /adopt
   def create
-    @cat = Cat.find(params[:pet_id])
+    @cat = Cat.find(params[:cat_id])
   end
 end
