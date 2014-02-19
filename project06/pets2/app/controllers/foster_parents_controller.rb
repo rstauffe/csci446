@@ -15,17 +15,7 @@ class FosterParentsController < ApplicationController
   # GET /foster_parents/new
   def new
     @foster_parent = FosterParent.new
-    @foster_parent.pet_id = params[:cat]
     
-    respond_to do |format|
-      if @foster_parent.save
-        format.html { redirect_to adoption_url, notice: 'Adoption successful.' }
-        format.json { render action: 'show', status: :created, location: @foster_parent }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @foster_parent.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # GET /foster_parents/1/edit
@@ -35,8 +25,7 @@ class FosterParentsController < ApplicationController
   # POST /foster_parents
   # POST /foster_parents.json
   def create
-    @foster_parent = FosterParent.new
-    @foster_parent.pet_id = params[:cat]
+    @foster_parent = FosterParent.new(foster_parent_params)
 
     respond_to do |format|
       if @foster_parent.save

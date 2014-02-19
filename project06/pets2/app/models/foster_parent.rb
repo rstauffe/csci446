@@ -1,3 +1,3 @@
 class FosterParent < ActiveRecord::Base
-  attr_accessible :pet_id
+  validates :name, :address, :email, presence: true
 end
