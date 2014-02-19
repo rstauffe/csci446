@@ -61,7 +61,16 @@ class FosterParentsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def fosters
+    @latest_foster = FosterParent.last
+      if stale?(@latest_foster)
+      respond_to do |format|
+        format.atom
+      end
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_foster_parent

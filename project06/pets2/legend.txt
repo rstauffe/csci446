@@ -1,0 +1,9 @@
+Originally, this was for my own sanity, but it may be generally useful.
+This has a map of what controllers/views correspond with what names in the book. 
+
+AdoptedPet = LineItem
+Cat = Product
+Adoption = Store
+Adopt = (new)-used to get to FosterParent
+Selection = Cart
+FosterParent = Order
