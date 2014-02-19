@@ -13,6 +13,10 @@
 	</div>
 	<div id="columns">
 		<div id="side">
+			<%= hidden_div_if(@selection.adopted_pets.empty?, id: 'selection') do %>
+				<%= render @selection %>
+			<% end %>
+			
 			<ul>
 				<li><a href="/">Home</a></li>
 				<li><a href="/cats">Pet Listings</a></li>

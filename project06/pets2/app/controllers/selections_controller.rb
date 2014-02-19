@@ -58,7 +58,7 @@ class SelectionsController < ApplicationController
     @selection.destroy if @selection.id == session[:selection_id]
     session[:selection_id] = nil
     respond_to do |format|
-      format.html { redirect_to adoption_url, notice: 'Selections removed.' }
+      format.html { redirect_to adoption_url}
       format.json { head :no_content }
     end
   end

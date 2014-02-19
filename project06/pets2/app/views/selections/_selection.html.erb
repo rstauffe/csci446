@@ -1,0 +1,5 @@
+<h2>Pets for Consideration</h2>
+<table>
+	<%= render(@selection.adopted_pets) %>
+</table>
+<%= button_to 'Remove Selections', @selection, method: :delete, data: {confirm: 'Are you sure?' } %>

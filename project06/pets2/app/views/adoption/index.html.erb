@@ -12,7 +12,7 @@
 		<%= sanitize(cat.description) %>
 		<div class="price_line">
 			<%= button_to 'Consider', adopted_pets_path(cat_id: cat) %>
-			<%= link_to 'Select Pet', adopt_index_path(cat_id: cat) %>
+			<%= link_to 'Select Pet', adopt_index_path(cat_id: cat), remote: true %>
 		</div>
 	</div>	
 	<% end %>

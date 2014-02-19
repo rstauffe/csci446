@@ -31,7 +31,8 @@ class AdoptedPetsController < ApplicationController
 
     respond_to do |format|
       if @adopted_pet.save
-        format.html { redirect_to @adopted_pet.selection, notice: 'Adopted pet was successfully created.' }
+        format.html { redirect_to adoption_url}
+        format.js
         format.json { render action: 'show', status: :created, location: @adopted_pet }
       else
         format.html { render action: 'new' }
