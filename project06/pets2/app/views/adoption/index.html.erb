@@ -4,7 +4,9 @@
 
 <h1>Cats for Adoption</h1>
 
+<% cache ['adoption', Cat.latest] do %>
 <% @cats.each do |cat| %>
+	<% cache ['entry', cat] do %>
 	<% if cat.status == 'Available' %>
 	<div class="entry">
 		<%= image_tag(cat.image_url) %>
@@ -16,4 +18,6 @@
 		</div>
 	</div>	
 	<% end %>
+	<% end %>
+  <% end %>
 <% end %>

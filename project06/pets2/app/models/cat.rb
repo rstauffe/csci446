@@ -11,6 +11,10 @@ class Cat < ActiveRecord::Base
 	
 	before_destroy :ensure_not_referenced_by_any_adopted_pet
 	
+  def self.latest
+    Cat.order(:updated_at).last
+  end
+  
   private
   
 	def ensure_not_referenced_by_any_adopted_pet
