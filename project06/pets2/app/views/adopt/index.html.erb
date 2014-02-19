@@ -8,5 +8,6 @@
 	<h3><%= @cat.name %>-<%= @cat.breed %></h3>
 	<%= sanitize(@cat.description) %>
 	<p>I hereby agree to give this pet a good home.</p>
-	<%= link_to 'Accept', adoption_path %>
+	<%= link_to 'Cancel', adoption_path %><br>
+	<%= link_to 'Confirm', new_foster_parent_path(:pet_id => @cat) %>
 </div>
