@@ -9,5 +9,5 @@
 	<%= sanitize(@cat.description) %>
 	<p>I hereby agree to give this pet a good home.</p>
 	<%= link_to 'Cancel', adoption_path %><br>
-	<%= link_to 'Confirm', new_foster_parent_path(:pet_id => @cat) %>
+	<%= button_to 'Confirm', new_foster_parent_path(:pet_id => @cat), method: :get %>
 </div>
