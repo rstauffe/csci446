@@ -5,6 +5,6 @@
 <h2>Pets for Consideration</h2>
 <ul>
 	<% @selection.adopted_pets.each do |pet| %>
-		<li> <%= pet.cat %></li>
+		<li> <%= pet.cat.name %></li>
 	<% end %>
 </ul>

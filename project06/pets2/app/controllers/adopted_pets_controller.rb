@@ -27,8 +27,7 @@ class AdoptedPetsController < ApplicationController
   # POST /adopted_pets.json
   def create
     cat = Cat.find(params[:cat_id])
-    @adopted_pet = @selection.adopted_pets.build(cat: cat)
-    #@adopted_pet.cat = cat
+    @adopted_pet = @selection.add_cat(cat.id)
 
     respond_to do |format|
       if @adopted_pet.save
