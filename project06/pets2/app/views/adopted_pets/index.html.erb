@@ -1,0 +1,29 @@
+<h1>Listing adopted_pets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pet</th>
+      <th>Selection</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @adopted_pets.each do |adopted_pet| %>
+      <tr>
+        <td><%= adopted_pet.pet_id %></td>
+        <td><%= adopted_pet.selection_id %></td>
+        <td><%= link_to 'Show', adopted_pet %></td>
+        <td><%= link_to 'Edit', edit_adopted_pet_path(adopted_pet) %></td>
+        <td><%= link_to 'Destroy', adopted_pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Adopted pet', new_adopted_pet_path %>

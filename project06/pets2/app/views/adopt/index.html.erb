@@ -1,0 +1,12 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Adopt</h1>
+<div class="entry">
+	<%= image_tag(@cat.image_url) %>
+	<h3><%= @cat.name %>-<%= @cat.breed %></h3>
+	<%= sanitize(@cat.description) %>
+	<p>I hereby agree to give this pet a good home.</p>
+	<%= link_to 'Accept', adoption_path %>
+</div>

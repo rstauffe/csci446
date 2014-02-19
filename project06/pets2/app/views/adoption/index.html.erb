@@ -1,0 +1,17 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Cats for Adoption</h1>
+
+<% @cats.each do |cat| %>
+	<div class="entry">
+		<%= image_tag(cat.image_url) %>
+		<h3><%= cat.name %>-<%= cat.breed %></h3>
+		<%= sanitize(cat.description) %>
+		<div class="price_line">
+			<%= button_to 'Consider', adopted_pets_path(pet_id: cat) %>
+			<%= link_to 'Select Pet', adopt_index_path(pet_id: cat) %>
+		</div>
+	</div>	
+<% end %>
